@@ -1,6 +1,6 @@
 import { useUserStore } from '@/stores/user'
 
-const BASE_URL = 'http://localhost:8080'
+export const API_BASE_URL = 'http://localhost:8080'
 
 interface RequestOptions {
   url: string
@@ -29,7 +29,7 @@ export function request<T = any>(options: RequestOptions): Promise<T> {
     }
 
     uni.request({
-      url: `${BASE_URL}${options.url}`,
+      url: `${API_BASE_URL}${options.url}`,
       method: options.method || 'GET',
       data: options.data,
       header,

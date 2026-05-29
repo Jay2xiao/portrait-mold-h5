@@ -1,0 +1,37 @@
+/* ===== iconfont 图标库 ===== */
+/* 使用 Unicode 字符占位，实际部署时替换为 iconfont.cn 下载的文件 */
+/* 图标类名格式: .mc-icon-xxx */
+
+@font-face {
+  font-family: "mc-iconfont";
+  /* TODO: 替换为实际 iconfont 字体文件 URL 或本地路径 */
+  src: url('data:font/woff2;base64,') format('woff2');
+}
+
+[class^="mc-icon-"],
+[class*=" mc-icon-"] {
+  font-family: "mc-iconfont" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * 图标列表（实际使用时替换为 iconfont 生成的 Unicode）
+ * 以下为 SVG 内联图标作为备选方案
+ */
+
+/* 使用 SVG 内联图标作为 iconfont 的备选 */
+.mc-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  font-size: inherit;
+  color: inherit;
+}

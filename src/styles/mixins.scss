@@ -1,0 +1,77 @@
+/* ===== SCSS Mixins ===== */
+
+/* 文字截断 */
+@mixin text-ellipsis($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* 安全区底部 */
+@mixin safe-area-bottom($extra: 0rpx) {
+  padding-bottom: calc(env(safe-area-inset-bottom) + #{$extra});
+}
+
+/* 固定底部栏 */
+@mixin fixed-bottom($height: auto) {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: var(--color-bg-card);
+  box-shadow: 0 -2rpx 8rpx rgba(0, 0, 0, 0.06);
+  @include safe-area-bottom;
+}
+
+/* 按压反馈 */
+@mixin press-feedback {
+  transition: all var(--transition-fast);
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.85;
+  }
+}
+
+/* 渐变头部弧形 */
+@mixin arc-header($height: 400rpx) {
+  position: relative;
+  background: var(--gradient-header);
+  height: $height;
+  border-radius: 0 0 40% 40%;
+  overflow: hidden;
+}
+
+/* 骨架屏闪烁动画 */
+@mixin skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.04) 25%,
+    rgba(0, 0, 0, 0.08) 50%,
+    rgba(0, 0, 0, 0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 隐藏滚动条 */
+@mixin hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

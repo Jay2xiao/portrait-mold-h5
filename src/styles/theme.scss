@@ -1,0 +1,71 @@
+/* ===== 设计系统 Token ===== */
+:root {
+  /* 主色 */
+  --color-primary: #6C5CE7;
+  --color-primary-light: #A29BFE;
+  --color-primary-dark: #5A4BD1;
+  --color-primary-bg: rgba(108, 92, 231, 0.08);
+
+  /* 语义色 */
+  --color-success: #00B894;
+  --color-warning: #FDCB6E;
+  --color-danger: #E17055;
+  --color-info: #74B9FF;
+
+  /* 微信品牌色 */
+  --color-wechat: #07C160;
+  --color-wechat-dark: #06AD56;
+
+  /* 文字 */
+  --color-text-primary: #2D3436;
+  --color-text-secondary: #636E72;
+  --color-text-placeholder: #B2BEC3;
+  --color-text-white: #FFFFFF;
+
+  /* 背景 */
+  --color-bg-page: #F5F6FA;
+  --color-bg-card: #FFFFFF;
+  --color-bg-mask: rgba(0, 0, 0, 0.5);
+
+  /* 边框 */
+  --color-border: #E8E8E8;
+  --color-border-light: #F0F0F0;
+
+  /* 渐变 */
+  --gradient-primary: linear-gradient(135deg, #6C5CE7, #A29BFE);
+  --gradient-wechat: linear-gradient(135deg, #07C160, #06AD56);
+  --gradient-header: linear-gradient(160deg, #6C5CE7 0%, #A29BFE 50%, #74B9FF 100%);
+
+  /* 间距 */
+  --spacing-xs: 8rpx;
+  --spacing-sm: 16rpx;
+  --spacing-md: 24rpx;
+  --spacing-lg: 32rpx;
+  --spacing-xl: 48rpx;
+
+  /* 圆角 */
+  --radius-xs: 8rpx;
+  --radius-sm: 12rpx;
+  --radius-md: 16rpx;
+  --radius-lg: 24rpx;
+  --radius-xl: 32rpx;
+  --radius-full: 999rpx;
+
+  /* 阴影 */
+  --shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8rpx 32rpx rgba(0, 0, 0, 0.12);
+
+  /* 字号 */
+  --font-xs: 20rpx;
+  --font-sm: 24rpx;
+  --font-base: 28rpx;
+  --font-md: 30rpx;
+  --font-lg: 32rpx;
+  --font-xl: 36rpx;
+  --font-xxl: 44rpx;
+
+  /* 过渡 */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+}

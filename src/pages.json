@@ -85,6 +85,12 @@
       }
     },
     {
+      "path": "pages/wx-bind/index",
+      "style": {
+        "navigationBarTitleText": "微信绑定"
+      }
+    },
+    {
       "path": "pages/webview/index",
       "style": {
         "navigationBarTitleText": ""

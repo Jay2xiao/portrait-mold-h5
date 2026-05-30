@@ -1,6 +1,20 @@
 import { useUserStore } from '@/stores/user'
 
-export const API_BASE_URL = 'http://localhost:8080'
+function resolveApiBaseUrl() {
+  const configured = import.meta.env.VITE_API_BASE_URL
+  if (configured) {
+    return configured
+  }
+  // #ifdef H5
+  const host = window.location.hostname
+  if (host && host !== 'localhost' && host !== '127.0.0.1') {
+    return '/prod-api'
+  }
+  // #endif
+  return 'http://localhost:8080'
+}
+
+export const API_BASE_URL = resolveApiBaseUrl()
 
 interface RequestOptions {
   url: string

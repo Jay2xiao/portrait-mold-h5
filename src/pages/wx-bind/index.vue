@@ -9,8 +9,12 @@ const status = ref<'binding' | 'success' | 'error' | 'invalid'>('binding')
 const message = ref('正在准备微信绑定')
 
 onLoad((options: Record<string, string | undefined>) => {
-  const token = options.token || ''
-  const code = options.code || ''
+  const { token, code, error } = resolveBindParams(options)
+  if (error === 'expired') {
+    status.value = 'invalid'
+    message.value = '绑定二维码已失效，请返回后台重新生成'
+    return
+  }
   if (!token) {
     status.value = 'invalid'
     message.value = '绑定二维码无效，请返回后台重新生成'
@@ -22,6 +26,40 @@ onLoad((options: Record<string, string | undefined>) => {
   }
   bind(token, code)
 })
+
+function resolveBindParams(options: Record<string, string | undefined>) {
+  const pageParams = readBrowserParams()
+  const state = options.state || pageParams.state || ''
+  return {
+    token: options.token || pageParams.token || state,
+    code: options.code || pageParams.code || '',
+    error: options.error || pageParams.error || ''
+  }
+}
+
+function readBrowserParams() {
+  const params: Record<string, string> = {}
+  // #ifdef H5
+  const appendParams = (query: string) => {
+    const normalized = query.startsWith('?') ? query.slice(1) : query
+    if (!normalized) {
+      return
+    }
+    new URLSearchParams(normalized).forEach((value, key) => {
+      if (value && !params[key]) {
+        params[key] = value
+      }
+    })
+  }
+
+  appendParams(window.location.search)
+  const hashQueryIndex = window.location.hash.indexOf('?')
+  if (hashQueryIndex >= 0) {
+    appendParams(window.location.hash.slice(hashQueryIndex + 1))
+  }
+  // #endif
+  return params
+}
 
 function redirectToWechatOAuth(token: string) {
   // #ifdef H5

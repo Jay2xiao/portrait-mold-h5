@@ -91,6 +91,12 @@
       }
     },
     {
+      "path": "pages/notify/detail",
+      "style": {
+        "navigationBarTitleText": "通知详情"
+      }
+    },
+    {
       "path": "pages/webview/index",
       "style": {
         "navigationBarTitleText": ""

@@ -28,6 +28,9 @@ onHide(() => {
 function handleH5SilentLogin() {
   try {
     const url = new URL(window.location.href)
+    if (url.hash.includes('/pages/wx-bind/index') || url.hash.includes('/pages/notify/detail')) {
+      return
+    }
     const code = url.searchParams.get('code')
     if (code) {
       const userStore = useUserStore()
